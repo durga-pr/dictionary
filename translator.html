@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Word Translator</title>
+    <link rel="stylesheet" href="translator.css">
+</head>
+<body>
+    <!-- Title Container -->
+    <div class="title-container">
+        Language Translator
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <div class="top-row">
+            <div class="translator">
+                <h>Learn Any Language With Your Own Language</h>
+                <input type="text" id="word" placeholder="Enter a word">
+            </div>
+            <div class="language-selector">
+                <select id="language">
+                    <option value="af">Afrikaans</option>
+                    <option value="ar">Arabic</option>
+                    <option value="zh">Chinese</option>
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="hi">Hindi</option>
+                    <option value="es">Spanish</option>
+                    <option value="ru">Russian</option>
+                    <option value="ja">Japanese</option>
+                    <option value="ko">Korean</option>
+                    <option value="te">Telugu</option>
+                    <option value="it">Italian</option>
+                    <option value="pt">Portuguese</option>
+                    <option value="nl">Dutch</option>
+                    <option value="sv">Swedish</option>
+                    <option value="pl">Polish</option>
+                    <option value="tr">Turkish</option>
+                    <option value="el">Greek</option>
+                    <option value="vi">Vietnamese</option>
+                    <option value="th">Thai</option>
+                    <option value="he">Hebrew</option>
+                </select>
+            </div>
+            <div class="output-container" id="outputContainer">
+                <h2>Translation</h2>
+                <div class="output" id="output"></div>
+            </div>
+        </div>
+        <button onclick="translateWord()" id="translate-btn">Translate</button>
+    </div>
+
+    <script>
+        async function translateWord() {
+            const word = document.getElementById('word').value;
+            const language = document.getElementById('language').value;
+
+            if (!word) {
+                alert('Please enter a word to translate.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|${language}`);
+                const data = await response.json();
+ 
+                if (data && data.responseData && data.responseData.translatedText) {
+                    const translation = data.responseData.translatedText;
+                    const outputDiv = document.getElementById('output');
+                    outputDiv.textContent = `Word: "${word}" | Translation: "${translation}"`;
+                } else {
+                    alert('Translation not available.');
+                }
+            } catch (error) {
+                alert('Error fetching translation. Please try again later.');
+            }
+        }
+    </script>
+</body>
+</html>
+

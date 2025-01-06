@@ -1,0 +1,186 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8f5e9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    flex-direction: column; /* Stack title container and main container vertically */
+    gap: 20px; /* Add space between the title and main container */
+}
+
+/* Title Container */
+.title-container {
+    background: linear-gradient(45deg, #8e24aa, #6a1b9a);
+    padding: 15px 0px; /* Smaller height */
+    text-align: center;
+    width: 55%; /* Full width of the viewport */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.title-container:hover {
+    background: linear-gradient(45deg, #6a1b9a, #8e24aa);
+    cursor: pointer;
+}
+
+/* Main Content Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 800px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Top Row - Container for input and output */
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.translator, .output-container, .language-selector {
+    background: linear-gradient(45deg, #f3e5f5, #e1bee7);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 250px;
+}
+
+.translator input, .translator select {
+    padding: 10px;
+    margin: 8px 0;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.translator input:focus, .translator select:focus {
+    outline: none;
+    border-color: #8e24aa;
+    box-shadow: 0 0 5px rgba(142, 36, 170, 0.7);
+}
+
+.output-container {
+    background: linear-gradient(45deg, #f3e5f5, #e1bee7);
+    border: 2px solid #dd2c00;
+    border-radius: 8px;
+    padding: 8px;
+    max-height: 180px;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.output-container h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #e014bb;
+}
+
+.output {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+    background: linear-gradient(45deg, #e9e6ee, #eeeaf4);
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+}
+
+.translator button {
+    background-color: #bdb2c1;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.translator button:hover {
+    background-color: #6a1b9a;
+}
+
+/* Language Selector Styling */
+.language-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.language-selector select {
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 6px;
+    border: 2px solid #0f0d0d;
+    background: linear-gradient(45deg, #73a878, #1079bb);
+    transition: all 0.3s ease;
+}
+
+.language-selector select:focus {
+    outline: none;
+    border-color: #dddde1;
+    box-shadow: 0 0 5px rgba(142, 36, 170, 0.7);
+}
+
+/* Translate Button Styling */
+#translate-btn {
+    background-color: #8e24aa;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#translate-btn:hover {
+    background-color: #6a1b9a;
+    transform: scale(1.05);
+}
+
+#translate-btn:active {
+    background-color: #4a148c;
+    transform: scale(1);
+}

@@ -1,0 +1,96 @@
+body {
+    margin-top: 100px;
+    margin-bottom: 70px;  
+    margin: 100px;
+    padding: 70px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1597762822325-7f7fd9d78bc1?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjUyOXwwfDF8c2VhY2h8Mnx8bWFnaXppbmUlMjBiYWNrZ3JvdW5uZ3xlbnwwfHx8fDE2NzcwMzEzNzA&ixlib=rb-1.2.1&q=80&w=1080'); /* Use the direct image URL */
+    background-size: cover; /* Make sure the background image covers the whole viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; 
+  }
+
+  .form-container {
+    width: 80%;
+    max-width: 450px;
+    max-height:fit-content; /* Reduced size of the form */
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    margin-top: 30px; /* 30px gap at the top */
+    margin-bottom: 30px;  /* Soft blur effect */
+  }
+
+  .form-container h2 {
+    margin-bottom: 20px;
+    margin-top: 30px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .form-container .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .form-container input, .form-container select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-top: 5px;
+  }
+
+  .form-container input[type="file"] {
+    padding: 0px;
+  }
+
+  .form-container button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #ff7e5f;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+
+  .form-container button:hover {
+    background-color: #feb47b;
+  }
+
+  .form-container p {
+    margin-top: 15px;
+    color: #333;
+  }
+
+  .form-container p a {
+    text-decoration: none;
+    color: #ff7e5f;
+  }
+
+  .error {
+    color: red;
+    font-size: 12px;
+  }

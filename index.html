@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary Website</title>
+    <div id="dictionary-container">
+        <!-- Dictionary content will be displayed here -->
+    </div>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+
+</head>
+    <script>
+        function displayMessage(field) {
+            const messages = {
+                wordOfDay: "Today's word is 'Serendipity': the occurrence of events by chance in a happy or beneficial way.",
+                trendingWords: "Trending word: 'Metaverse'. It's all about virtual shared spaces!",
+                grammarTips: "Grammar Tip: Always use 'its' for possession and 'it's' for 'it is'."
+            };
+            alert(messages[field]);
+        }
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+<body>
+    <header>
+        <img  src="img.png" width="150px"height="100px"  style="position: absolute;top:15px;left:35px;">
+        <h1>Welcome To My Dictionary</h1>
+        <p1>Your Trusted Companion For Discovering The Meanings Of English Words</p1>
+        <div class="header-buttons">
+            <button onclick="redirectTo('login.html')">Login</button>
+            <button onclick="redirectTo('signin.html')">Sign Up</button>
+            <button class="circle-button" onclick="redirectTo('profile.html')">
+                <i class="fas fa-user"></i>
+            </button>
+            <script>
+                // Redirect to the profile page
+                function redirectTo(page) {
+                    window.location.href = page;
+                }
+            </script>
+        
+            <!-- Font Awesome Icon Library -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+        </div>
+
+            
+
+    </header>
+    <div class="search-container">
+        <input type="text" placeholder="Search for a word...">
+        <button id="btn">Search</button>
+        <button id="translate-btn" onclick="redirectTo('translator.html')">Translator</button>
+    </div>
+    
+    <div class="features">
+        <div class="feature-card">
+            <a href="#" onclick="displayMessage('wordOfDay')">Word of the Day</a>
+            <p>Expand your vocabulary with daily highlights.</p>
+        </div>
+        <div class="feature-card">
+            <a href="#" onclick="displayMessage('trendingWords')">Trending Words</a>
+            <p>Discover what's popular in the language today.</p>
+        </div>
+        <div class="feature-card">
+            <a href="#" onclick="displayMessage('grammarTips')">Grammar Tips</a>
+            <p>Learn how to improve your writing and speaking.</p>
+        </div>
+        <div class="feature-card">
+            <a href="#" onclick="displayMessage('englishFacts')"> Facts about English </a>
+            <p>Know about English</p>
+        </div>
+    </div>
+    <div id="word-game">
+        <h1>Word Guessing Game</h1>
+        <div id="difficulty-select">
+            <label for="difficulty">Select Level:</label>
+            <select id="difficulty">
+                <option value="simple">Simple</option>
+                <option value="medium">Medium</option>
+                <option value="difficult">Difficult</option>
+            </select>
+            <button id="start-game">Start Game</button>
+        </div>
+        <div id="hint-display">Hint will appear here.</div>
+        <div id="word-container"></div>
+        <button id="check-answer">Check Answer</button>
+        <button id="next-word">Next Word</button>
+        <div id="feedback"></div>
+    </div>
+    <script>
+       const selectElement = document.getElementById('difficulty');
+
+selectElement.addEventListener('change', function () {
+    // Remove all previous level classes
+    selectElement.classList.remove('simple', 'medium', 'difficult');
+    
+    // Add the class based on the selected value
+    selectElement.classList.add(this.value);
+});
+    </script>
+    
+
+ 
+    <script>
+        function displayMessage(field) {
+            const messages = {
+                wordOfDay: "Today's word is 'Serendipity': the occurrence of events by chance in a happy or beneficial way.",
+                trendingWords: "Trending word: 'Metaverse'. It's all about virtual shared spaces!",
+                grammarTips: "Grammar Tip: Always use 'its' for possession and 'it's' for 'it is'.",
+                englishFacts: getRandomEnglishFact()
+            };
+            alert(messages[field]);
+        }
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+        // Random English facts
+        function getRandomEnglishFact() {
+            const facts = [
+                "The most common letter in English is 'E'.",
+                "Shakespeare added over 1,700 words to the English language.",
+                "'I am.' is the shortest complete sentence in English.",
+                "The word 'set' has the most definitions of any word in the English language.",
+                "The longest word in English is 'pneumonoultramicroscopicsilicovolcanoconiosis'.",
+                "The dot over the letters 'i' and 'j' is called a 'tittle'.",
+                "The English alphabet originally had 29 letters, including the now obsolete letters 'thorn' (þ) and 'eth' (ð).",
+                "English is the language with the most words, estimated at over 1 million.",
+                "'Dreamt' is the only word in English that ends with 'mt'.",
+                "English borrows words from over 350 languages worldwide."
+            ];
+            // Generate a random fact
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            return facts[randomIndex];
+        }
+    </script> 
+    <script>
+        // Word categories
+        const wordCategories = {
+    simple: [
+         {word :"Murali",hint:"IT department Editor"},
+        { word: "Apple", hint: "A common fruit" },
+        { word: "Table", hint: "A piece of furniture" },
+        { word: "Chair", hint: "You sit on it" },
+        { word: "Dog", hint: "A loyal pet" },
+        { word: "Book", hint: "A collection of written pages" },
+        { word: "Sun", hint: "A star at the center of our solar system" },
+        { word: "Moon", hint: "Earth's natural satellite" },
+        { word: "Tree", hint: "A tall plant with a trunk and branches" },
+        { word: "Pen", hint: "A tool used for writing" },
+        { word: "Fish", hint: "An aquatic animal" },
+        { word: "Bird", hint: "A creature with wings" },
+        { word: "Ball", hint: "A round object used in sports" },
+        { word: "Bed", hint: "A place for sleeping" },
+        { word: "House", hint: "A building for living in" },
+        { word: "Shirt", hint: "A piece of clothing worn on the upper body" },
+        { word: "Water", hint: "A clear liquid essential for life" },
+        { word: "Cup", hint: "A small container for drinking" },
+        { word: "Cake", hint: "A sweet baked dessert" },
+        { word: "Lemon", hint: "A yellow citrus fruit" },
+        { word: "Boat", hint: "A vessel used for traveling on water" }
+    ],
+    medium: [
+        { word: "Laptop", hint: "A portable computer" },
+        { word: "Library", hint: "A place full of books" },
+        { word: "Rainbow", hint: "Colors appearing in the sky after rain" },
+        { word: "Puzzle", hint: "A game of logic or matching" },
+        { word: "Bridge", hint: "A structure to cross a river" },
+        { word: "Teacher", hint: "A person who educates" },
+        { word: "Window", hint: "An opening in a wall, covered with glass" },
+        { word: "Camera", hint: "A device used to capture images" },
+        { word: "Doctor", hint: "A person who treats illnesses" },
+        { word: "Kitchen", hint: "A room where food is prepared" },
+        { word: "Garden", hint: "An area for growing plants" },
+        { word: "School", hint: "A place for learning" },
+        { word: "Paper", hint: "A thin material used for writing" },
+        { word: "Basket", hint: "A container made of woven materials" },
+        { word: "Planet", hint: "A large celestial body orbiting a star" },
+        { word: "Music", hint: "Sound that is organized in patterns" },
+        { word: "Robot", hint: "A machine designed to carry out tasks" },
+        { word: "Vacation", hint: "Time spent away from work or school" },
+        { word: "Computer", hint: "An electronic device for processing data" },
+        { word: "Clock", hint: "A device to tell the time" }
+    ],
+    difficult: [
+        { word: "Progress", hint: "To improve or get better" },
+        { word: "Serendipity", hint: "A positive discovery by chance" },
+        { word: "Metaverse", hint: "A virtual shared space" },
+        { word: "Astronomy", hint: "Study of celestial bodies" },
+        { word: "Cryptography", hint: "The art of writing or solving codes" },
+        { word: "Psychology", hint: "The study of the mind and behavior" },
+        { word: "Geology", hint: "The science of the Earth's physical structure" },
+        { word: "Philosophy", hint: "The study of fundamental knowledge" },
+        { word: "Technology", hint: "The application of scientific knowledge for practical purposes" },
+        { word: "Quantum", hint: "Physics related to the behavior of subatomic particles" },
+        { word: "Algorithm", hint: "A process or set of rules to be followed in calculations" },
+        { word: "Archaeology", hint: "The study of human history through excavation" },
+        { word: "Ecosystem", hint: "A biological community of interacting organisms" },
+        { word: "Genetics", hint: "The study of heredity and the variation of inherited characteristics" },
+        { word: "Architecture", hint: "The art and science of designing buildings" },
+        { word: "Renaissance", hint: "A period of revival in art and learning" },
+        { word: "Hydrology", hint: "The branch of science concerned with water" },
+        { word: "Meteorology", hint: "The study of weather and atmospheric conditions" },
+        { word: "Artificial", hint: "Made by human beings rather than occurring naturally" },
+        { word: "Zoology", hint: "The study of animals" }
+    
+    ]
+};
+
+     let currentWord = null;
+
+     // Function to get a random word from the selected category
+     function getRandomWord(difficulty) {
+         const category = wordCategories[difficulty];
+         return category[Math.floor(Math.random() * category.length)];
+     } 
+    function displayWord() {
+        const difficulty = document.getElementById("difficulty").value;
+        currentWord = getRandomWord(difficulty);
+        const { word, hint } = currentWord;
+
+        // Display the hint
+        document.getElementById("hint-display").innerText = `Hint: ${hint}`;
+
+        // Create input boxes for the word
+        const wordContainer = document.getElementById("word-container");
+        wordContainer.innerHTML = ""; // Clear previous word
+        for (let i = 0; i < word.length; i++) {
+            const input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.setAttribute("maxlength", "1");
+            input.classList.add("letter-box");
+
+            // Randomly pre-fill some letters
+            if (Math.random() > 0.6) {
+                input.value = word[i];
+                input.setAttribute("disabled", true);
+            }
+
+            wordContainer.appendChild(input);
+        }
+
+        // Clear feedback
+        document.getElementById("feedback").innerText = "";
+    }
+
+    // Function to check the user's answer
+    function checkAnswer() {
+        const inputs = document.querySelectorAll(".letter-box");
+        const userAnswer = Array.from(inputs).map(input => input.value.toUpperCase()).join("");
+
+        if (userAnswer === currentWord.word.toUpperCase()) {
+            document.getElementById("feedback").innerText = "🎉 Congratulations! You guessed it right!";
+            document.getElementById("feedback").style.color = "green";
+        } else {
+            document.getElementById("feedback").innerText = "❌ Incorrect! Try again.";
+            document.getElementById("feedback").style.color = "red";
+        }
+    }
+
+    // Event listeners
+    document.getElementById("start-game").addEventListener("click", displayWord);
+    document.getElementById("next-word").addEventListener("click", displayWord);
+    document.getElementById("check-answer").addEventListener("click", checkAnswer);
+
+    // Initial state
+    document.getElementById("word-container").innerHTML = "  Game Started.";
+</script>    
+<footer>
+    <div class="quotes-section">
+        <p style="text-align: center;;color:rgb(32, 29, 212);font-family: 'Playfair Display', serif;font-family: 'Merriweather', serif;font-family: 'Baskerville', 'Georgia', serif;
+          ;">"Every day is a chance to learn something new. Make it count!"</p>
+    </div>
+    <p style="text-align: center; margin-top: 20px;color:black">© 2024 My Dictionary | Keep exploring the world of words!</p>
+</footer> 
+</script>
